@@ -14,7 +14,6 @@ import { ethers } from "ethers";
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-
   const [searchState, setSearchState] = useState("");
 
   const { contract } = useContract(
@@ -32,8 +31,7 @@ export const StateContextProvider = ({ children }) => {
 
   const connectToWallet = async () => {
     await connect(metamaskConfig);
-  }
-
+  };
 
   const disconnect = useDisconnect();
 
@@ -70,6 +68,7 @@ export const StateContextProvider = ({ children }) => {
       ),
       image: campaign.image,
       pId: i,
+      donators: campaign.donators,
     }));
 
     return parsedCampaigns;
@@ -83,6 +82,27 @@ export const StateContextProvider = ({ children }) => {
     );
 
     return filteredCampaigns;
+  };
+
+  const getMoneyDonated = async () => {
+    const allCampaigns = await getCampaigns();
+
+    const filteredCampaigns = allCampaigns.filter((campaign) => {
+      for (let i = 0; i < campaign.donators.length; i++) {
+        if (address === campaign.donators[i]) {
+          return true; // If the address matches, return true to include this campaign
+        }
+      }
+      return false;
+    });
+
+    // console.log(filteredCampaigns);
+    let totalMoney = 0;
+    for (let i = 0; i < filteredCampaigns.length; i++) {
+      totalMoney += Number(filteredCampaigns[i].amountCollected);
+    }
+
+    return totalMoney;
   };
 
   const donate = async (pId, amount) => {
@@ -124,6 +144,7 @@ export const StateContextProvider = ({ children }) => {
         getDonations,
         searchState,
         setSearchState,
+        getMoneyDonated,
       }}
     >
       {children}

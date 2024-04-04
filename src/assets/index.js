@@ -12,6 +12,11 @@ import menu from './menu.svg';
 import money from './money.svg';
 import loader from './loader.svg';
 import thirdweb from './thirdweb.png';
+import eth_logo from './eth_logo.png';
+import moneyraised from './moneyraised.svg';
+import totalcampaigns from './totalcampaigns.svg';
+import moneydonated from './moneydonated.svg';
+import banner from './banner.jpg';
 
 export {
   tagType,
@@ -28,4 +33,9 @@ export {
   money,
   loader,
   thirdweb,
+  eth_logo,
+  moneyraised,
+  totalcampaigns,
+  moneydonated,
+  banner,
 };

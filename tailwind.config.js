@@ -14,7 +14,9 @@ module.exports = {
       },
       colors: {
         'light-bg-col': '#eaeaff',
-        'title-text': '#3d3d40'
+        'title-text': '#3d3d40',
+        'light-bg-shade1': '#dfdfff',
+        'dark-bg-shade1' : '#1c1c24',
       },
     },
     
