@@ -17,6 +17,18 @@ import moneyraised from './moneyraised.svg';
 import totalcampaigns from './totalcampaigns.svg';
 import moneydonated from './moneydonated.svg';
 import banner from './banner.jpg';
+import hospital_light from './hospital_light.svg';
+import hospitaldark from './hospitaldark.svg';
+import orphandark from './orphandark.svg';
+import orphanlight from './orphanlight.svg';
+import oldage_light from './oldage_light.svg';
+import oldage_dark from './oldage_dark.svg';
+import financial_light from './financial_light.svg';
+import financial_dark from './financial_dark.svg';
+import refugee_light from './refugee_light.svg';
+import refugee_dark from './refugee_dark.svg';
+import calamity_light from './calamity_light.svg';
+import calamity_dark from './calamity_dark.svg';
 
 export {
   tagType,
@@ -38,4 +50,16 @@ export {
   totalcampaigns,
   moneydonated,
   banner,
+  hospital_light,
+  hospitaldark,
+  orphandark,
+  orphanlight,
+  oldage_light,
+  oldage_dark,
+  financial_light,
+  financial_dark,
+  refugee_light,
+  refugee_dark,
+  calamity_light,
+  calamity_dark,
 };

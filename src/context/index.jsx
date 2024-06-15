@@ -14,10 +14,19 @@ import { ethers } from "ethers";
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
+
+  // Theme state
+  const [toggleTheme, SetTheme] = useState('');
+
+  //SearchBar Input
   const [searchState, setSearchState] = useState("");
 
+  //Filter Input
+  // const filterState = [];
+  const [filterState, setFilterState] = useState([]);
+
   const { contract } = useContract(
-    "0x0E9dFe154D1a55Fba5d73C848189513158C429cB"
+    "0xb6375498CA4d8B56EED1C4219Db74B4C3C60A817"
   );
   const { mutateAsync: createCampaign } = useContractWrite(
     contract,
@@ -41,6 +50,7 @@ export const StateContextProvider = ({ children }) => {
         args: [
           address, // owner
           form.title, // title
+          form.category,
           form.description, // description
           form.target,
           new Date(form.deadline).getTime(), // deadline,
@@ -60,6 +70,7 @@ export const StateContextProvider = ({ children }) => {
     const parsedCampaigns = campaigns.map((campaign, i) => ({
       owner: campaign.owner,
       title: campaign.title,
+      category: campaign.category,
       description: campaign.description,
       target: ethers.utils.formatEther(campaign.target.toString()),
       deadline: campaign.deadline.toNumber(),
@@ -144,7 +155,11 @@ export const StateContextProvider = ({ children }) => {
         getDonations,
         searchState,
         setSearchState,
+        filterState,
+        setFilterState,
         getMoneyDonated,
+        toggleTheme,
+        SetTheme,
       }}
     >
       {children}

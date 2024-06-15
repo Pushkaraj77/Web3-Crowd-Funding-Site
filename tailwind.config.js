@@ -17,6 +17,7 @@ module.exports = {
         'title-text': '#3d3d40',
         'light-bg-shade1': '#dfdfff',
         'dark-bg-shade1' : '#1c1c24',
+        'subtitle-text': '#818183',
       },
     },
     

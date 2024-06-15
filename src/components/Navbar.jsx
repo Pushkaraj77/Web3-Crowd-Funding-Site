@@ -10,10 +10,16 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState("dashboard");
   const [toggleDrawer, setToggleDrawer] = useState(false);
-  const [toggleTheme, SetTheme] = useState("");
-  const { address, connectToWallet } = useStateContext();
+  const { address, connectToWallet, setSearchState, toggleTheme, SetTheme } = useStateContext();
   // const [query, setQuery] = useState("")
-  const {setSearchState} = useStateContext();
+  const [isFocused, setIsFocused] = useState(false);
+  const handleOnFocus = () => {
+    setIsFocused(true);
+    if(isFocused)
+      {
+        navigate('all-campaigns');
+      }
+  };
 
 
   return (
@@ -26,12 +32,14 @@ const Navbar = () => {
       py-2 pl-4 pr-2 h-[52px] bg-light-bg-col dark:bg-[#1c1c24] rounded-[100px]"
       >
         <input
+          id="searchinput"
           type="text"
           placeholder="Search for Campaigns"
           className="flex w-full font-epilogue font-normal
         text-[14px] placeholder:text-[#4b5264] text-title-text dark:text-white
         bg-transparent outline-none"
-        onChange={event => setSearchState(event.target.value)}
+          onFocus={handleOnFocus}
+          onChange={(event) => setSearchState(event.target.value)}
         />
 
         <div
@@ -79,7 +87,7 @@ const Navbar = () => {
       {/* Small Screen Navigation */}
       <div
         className=" sm:hidden flex justify-between
-      items-center relative"
+      items-center relative "
       >
         <div
           className="w-[40px] h-[40px] rounded-[10px]
@@ -117,8 +125,8 @@ const Navbar = () => {
         </div>
 
         <div
-          className={` absolute top-[60px] right-0 rounded-lg
-          left-0 bg-light-bg-col dark:bg-[#1c1c24] z-10 shadow-secondary py-4
+          className={` absolute top-[60px] right-0 rounded-lg 
+          left-0 bg-light-bg-col dark:bg-[#1c1c24] z-20 shadow-secondary py-4
           ${
             !toggleDrawer ? "-translate-y-[100vh]" : "translate-y-0"
           } transition-all duration-700`}

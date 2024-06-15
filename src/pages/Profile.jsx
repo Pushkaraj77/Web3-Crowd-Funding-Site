@@ -80,11 +80,12 @@ const Profile = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row mb-[50px] mt-8 items-center">
-        <div className="w-[6rem] h-auto flex justify-center items-center ">
+      <div className="flex flex-col flex-wrap sm:flex-row mb-[50px] mt-8 items-center 
+      max-xl:gap-6 justify-center">
+        <div className="w-[6rem] h-auto flex ">
           <img src={eth_logo} alt="logo_prof" />
         </div>
-        <div className="flex flex-col ml-[50px]">
+        <div className="flex sm:flex-col sm:ml-[50px]">
           <StatBox
             name={"Total Campaigns"}
             value={address ? campaigns.length : "Sign In"}
@@ -101,18 +102,18 @@ const Profile = () => {
             imgUrl={moneydonated}
           />
         </div>
-        <div className="flex flex-col items-center ml-8 px-6 bg-light-bg-col dark:bg-[#1c1c24] rounded-[10px]">
+        <div className="flex flex-col items-center lg:ml-8 px-6 bg-light-bg-col dark:bg-[#1c1c24] rounded-[10px]">
           <div className="mt-4 text-title-text dark:text-[#b2b3bd] font-epilogue font-semibold ">
             {`${radialCampaign.title}`}
           </div>
           <RadialBar ser={[radialPercent]} />
         </div>
-        <div className="ml-8 w-[500px] bg-light-bg-col dark:bg-[#1c1c24] rounded-[10px]">
+        <div className="lg:ml-8 w-[330px] lg:w-[440px] bg-light-bg-col dark:bg-[#1c1c24] rounded-[10px]">
           <LineChart />
         </div>
       </div>
       <DisplayCampaigns
-        title="All Campaigns"
+        title="Your Campaigns"
         isLoading={isLoading}
         campaigns={campaigns}
       />

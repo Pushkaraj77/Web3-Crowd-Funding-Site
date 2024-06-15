@@ -6,6 +6,7 @@ import { daysLeft } from "../utils";
 const FundCard = ({
   owner,
   title,
+  category,
   description,
   target,
   deadline,
@@ -17,8 +18,8 @@ const FundCard = ({
   const remainingDays = daysLeft(deadline);
 
   return (
-  <div className="sm:w-[288px] w-full rounded-[15px] bg-light-bg-col
-  dark:bg-[#1c1c24] cursor-pointer"
+  <div className="sm:w-[288px] rounded-[15px] bg-light-bg-col
+  dark:bg-[#1c1c24] cursor-pointer w-[320px]"
   onClick={handleClick}>
 
     <img src={image} alt="fund"
@@ -26,15 +27,15 @@ const FundCard = ({
     rounded-[15px]" />
 
     <div className="flex flex-col p-4">
-      {/* <div className="flex flex-row items-center
+      <div className="flex flex-row items-center
       mb-[18px]">
         <img src={tagType} alt='tag'
         className="w-[17px] h-[17px] 
         object-contain"/>
-        <p className="ml-12px mt-[2px] 
+        <p className="ml-[8px] 
         font-epilogue font-medium
-        text-[12px] text-[#808191]">Category</p>
-      </div> */}
+        text-[12px] text-[#808191]">{category}</p>
+      </div>
 
       <div className="block">
         <h3 className="font-epilogue font-semibold 

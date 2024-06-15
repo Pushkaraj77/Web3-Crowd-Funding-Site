@@ -14,6 +14,7 @@ const CreateCampaign = () => {
   const [form, setForm] = useState({
     name: '',
     title: '',
+    category: '',
     description: '',
     target: '', 
     deadline: '',
@@ -93,6 +94,32 @@ const CreateCampaign = () => {
             value={form.deadline}
             handleChange={(e) => handleFormFieldChange('deadline', e)}
           />
+        </div>
+
+        <div>
+          <label className='flex-1 w-full flex flex-col'>
+          <span className=' font-epilogue font-medium
+            text-[14px] leading-[22px] text-[#808191]
+            mb-[10px]'>Category *</span>
+          <select 
+          onChange={(e) => handleFormFieldChange('category', e)}
+          className='py-[15px] sm:px-[25px] px-[15px]
+            outline-none border-[1px] border-[#3a3a43]
+            bg-transparent font-epilogue dark:text-white text-black
+            text-[14px] placeholder:text-[#4b5264]
+            rounded-[10px] sm:min-w-[300px]'
+            required
+          >
+            <option value="" selected>Select a Category</option>
+            <option value="Oldage Home" >Oldage Home</option>
+            <option value="Orphanage">Orphanage</option>
+            <option value="Medical">Medical</option>
+            <option value="Financial">Financial</option>
+            <option value="Calamity Relief">Calamity Relief</option>
+            <option value="Refugee">Refuge Program</option>
+
+          </select>
+          </label>
         </div>
 
         <FormField 
